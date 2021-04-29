@@ -12,6 +12,7 @@ app.config['SECRET_KEY'] = 'TOP_SECRET'
 run_with_ngrok(app)
 
 login_manager = LoginManager(app)
+login_manager.init_app(app)
 
 db_session.init('db/db.sqlite')
 
