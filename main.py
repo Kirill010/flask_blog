@@ -1,12 +1,12 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask("Cool-blogs")
 
 
 @app.route('/')
 def home_page():
-    return "Привет!"
+    return render_template("base.html", title="Дом")
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080, host='127.0.0.1')
