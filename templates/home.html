@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if current_user.is_authenticated %}
+    <form method="POST">
+        {{ form.csrf_token() }}
+        <p>{{ form.content() }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+
+    {% for post in posts %}
+    <p>{{ post.content }}</p>
+    <p>Нравится: {{ post.likes }}</p>
+    <p>Автор: {{ post.author.login }}</p>
+    <p><a href="/like/{{ post.id }}">Мне нравится!</a></p>
+    {% endfor %}
+
+{% endblock %}
